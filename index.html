@@ -32,28 +32,22 @@
             overflow-x: hidden;
         }
         
-        /* Mobile-first adjustments */
-        .container {
-            padding-left: 15px;
-            padding-right: 15px;
-        }
-        
-        /* Header styles */
+        /* Animated header with gradient */
         .header {
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             color: white;
             background: var(--gradient-primary);
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 180, 216, 0.2);
             position: relative;
             overflow: hidden;
             animation: gradientShift 8s ease infinite;
             background-size: 200% 200%;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             font-weight: 700;
         }
         
@@ -63,185 +57,534 @@
             100% { background-position: 0% 50%; }
         }
         
+        .header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 20%,
+                rgba(255, 255, 255, 0.5) 50%,
+                rgba(255, 255, 255, 0) 80%
+            );
+            transform: translateX(-100%);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            100% { transform: translateX(100%); }
+        }
+        
         .subheader {
             text-align: center; 
-            margin-bottom: 15px;
-            font-size: 1rem;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
             color: var(--gray-text);
             font-weight: 300;
         }
         
-        /* Card styles optimized for mobile */
+        /* Modern card design with hover effects */
         .card {
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 12px;
             background-color: white;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--primary-color);
+            transition: all 0.3s ease;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+        }
+        
+        .team-card, .manager-card, .internship-card {
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 12px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             border: none;
             position: relative;
             overflow: hidden;
         }
         
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        .team-card::before, .manager-card::before, .internship-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-secondary);
         }
         
-        /* Navigation optimized for mobile */
-        .nav-pills {
-            overflow-x: auto;
-            white-space: nowrap;
-            display: flex;
-            flex-wrap: nowrap;
-            padding-bottom: 10px;
-            background: white;
-            border-radius: 50px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-            margin-bottom: 20px;
-            -webkit-overflow-scrolling: touch;
-        }
-        
-        .nav-pills .nav-link {
-            padding: 8px 15px;
-            font-size: 0.85rem;
-            margin: 0 3px;
-            border-radius: 50px;
-            display: inline-flex;
-            align-items: center;
-        }
-        
-        .nav-pills .nav-link i {
-            margin-right: 5px;
-            font-size: 0.9rem;
-        }
-        
-        /* Education page specific styles */
-        .education-feature {
-            padding: 15px;
-            margin-bottom: 15px;
-            border-left: 4px solid var(--accent-color);
-            background-color: rgba(255, 158, 0, 0.05);
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .education-feature i {
-            color: var(--accent-color);
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-        
-        /* Internship page styles */
-        .internship-card {
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            background-color: white;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid var(--secondary-color);
-        }
-        
-        /* Job page styles */
-        .job-card {
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            background-color: white;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid var(--primary-color);
-        }
-        
-        /* Button styles optimized for mobile */
+        /* Button styles */
         .btn-primary {
             background: var(--gradient-primary);
             border: none;
-            padding: 8px 20px;
+            padding: 10px 25px;
             border-radius: 50px;
             font-weight: 500;
-            font-size: 0.9rem;
             transition: all 0.3s ease;
-            box-shadow: 0 3px 10px rgba(0, 180, 216, 0.3);
-            display: inline-flex;
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 180, 216, 0.4);
+            background: var(--gradient-primary);
+        }
+        
+        .btn-secondary {
+            background: var(--gradient-secondary);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(114, 9, 183, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(114, 9, 183, 0.4);
+            background: var(--gradient-secondary);
+        }
+        
+        /* GitHub badge with animation */
+        .github-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #333 0%, #000 100%);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin: 15px 0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .github-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .github-badge::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+        
+        .github-badge:hover::before {
+            left: 100%;
+        }
+        
+        /* Navigation pills with icons */
+        .nav-pills {
+            background: white;
+            padding: 10px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .nav-pills .nav-link {
+            color: var(--dark-text);
+            border-radius: 50px;
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
             align-items: center;
             justify-content: center;
         }
         
-        .btn-primary i {
-            margin-right: 5px;
+        .nav-pills .nav-link i {
+            margin-right: 8px;
+            font-size: 1.1rem;
         }
         
+        .nav-pills .nav-link.active {
+            background: var(--gradient-primary);
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+            color: white;
+        }
+        
+        .nav-pills .nav-link:hover:not(.active) {
+            background-color: rgba(0, 180, 216, 0.1);
+        }
+        
+        /* Form styling */
+        .form-control, .form-select {
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(0, 180, 216, 0.25);
+        }
+        
+        /* Alert styling */
+        .alert {
+            border-radius: 10px;
+            padding: 15px 20px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header {
+                font-size: 1.8rem;
+                padding: 15px;
+            }
+            
+            .subheader {
+                font-size: 0.95rem;
+            }
+            
+            .nav-pills .nav-link {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+                margin: 2px;
+            }
+            
+            .nav-pills .nav-link i {
+                margin-right: 5px;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Floating action button */
+        .fab-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        .fab {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 20px rgba(255, 158, 0, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .fab:hover {
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 8px 25px rgba(255, 158, 0, 0.6);
+        }
+        
+        /* Pulse animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* Section titles */
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 3px;
+        }
+        
+        /* Team member cards */
+        .team-member {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .team-member-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover .team-member-img {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Project cards */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card .card-body {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Color classes */
+        .card-color-1 { --card-color: #00B4D8; }
+        .card-color-2 { --card-color: #48CAE4; }
+        .card-color-3 { --card-color: #90E0EF; }
+        .card-color-4 { --card-color: #ADE8F4; }
+        .card-color-5 { --card-color: #CAF0F8; }
+        .card-color-6 { --card-color: #FF6B6B; }
+        .card-color-7 { --card-color: #4CC9F0; }
+        .card-color-8 { --card-color: #4361EE; }
+        .card-color-9 { --card-color: #3A0CA3; }
+        .card-color-10 { --card-color: #4895EF; }
+        .card-color-11 { --card-color: #2EC4B6; }
+        .card-color-12 { --card-color: #E71D36; }
+        .card-color-13 { --card-color: #FF9F1C; }
+        .card-color-14 { --card-color: #011627; }
+        .card-color-15 { --card-color: #1B98E0; }
+        
+        [class*="card-color-"]::before {
+            background: linear-gradient(135deg, var(--card-color) 0%, var(--card-color-dark) 100%);
+        }
+        
+        /* Add color-dark variables */
+        .card-color-1 { --card-color-dark: #0077B6; }
+        .card-color-2 { --card-color-dark: #0096C7; }
+        .card-color-3 { --card-color-dark: #00B4D8; }
+        .card-color-4 { --card-color-dark: #48CAE4; }
+        .card-color-5 { --card-color-dark: #90E0EF; }
+        .card-color-6 { --card-color-dark: #FF4D6D; }
+        .card-color-7 { --card-color-dark: #38B6FF; }
+        .card-color-8 { --card-color-dark: #3A0CA3; }
+        .card-color-9 { --card-color-dark: #240046; }
+        .card-color-10 { --card-color-dark: #1B98E0; }
+        .card-color-11 { --card-color-dark: #1A936F; }
+        .card-color-12 { --card-color-dark: #C1121F; }
+        .card-color-13 { --card-color-dark: #FF7B00; }
+        .card-color-14 { --card-color-dark: #000814; }
+        .card-color-15 { --card-color-dark: #006494; }
+
+        /* Page sections */
+        .page-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Contact form styling */
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form .form-label {
+            font-weight: 500;
+            color: var(--dark-text);
+        }
+
+        /* Job section styling */
+        .job-card {
+            border-left: 5px solid var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Education section styling */
+        .education-timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+
         /* Testimonials */
         .testimonial-card {
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            background-color: white;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid var(--secondary-color);
+            border-left: 5px solid var(--secondary-color);
         }
-        
-        /* Footer styles */
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        /* Footer */
         .footer {
             background: var(--gradient-primary);
             color: white;
-            padding: 20px 0;
-            margin-top: 30px;
-            font-size: 0.9rem;
+            padding: 30px 0;
+            margin-top: 50px;
         }
-        
+
         .footer a {
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
         }
-        
+
         .footer a:hover {
             color: var(--accent-color);
             text-decoration: underline;
         }
-        
-        /* Responsive adjustments */
-        @media (min-width: 768px) {
-            .header {
-                font-size: 2.5rem;
-                padding: 20px;
-            }
-            
-            .subheader {
-                font-size: 1.1rem;
-            }
-            
-            .nav-pills {
-                justify-content: center;
-                overflow-x: visible;
-                white-space: normal;
-                padding-bottom: 0;
-            }
-            
-            .nav-pills .nav-link {
-                padding: 10px 20px;
-                font-size: 1rem;
-                margin: 0 5px;
-            }
-            
-            .btn-primary {
-                padding: 10px 25px;
-                font-size: 1rem;
-            }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
         }
     </style>
 </head>
 <body>
-    <div class="container py-3">
+    <!-- Floating Action Button -->
+    <div class="fab-container">
+        <button class="fab pulse" id="contactFab">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+
+    <div class="container py-4">
         <!-- Header -->
-        <div class="header">Orbt_Learn</div>
-        <div class="subheader">The Right Education For Job</div>
+        <div class="header">OrbtLearn</div>
+        <div class="subheader">...........The Right Education For Job............</div>
         <div class="subheader">Complete your final year projects with excellence</div>
         
         <!-- Navigation -->
-        <ul class="nav nav-pills mb-3" id="mainNav">
+        <ul class="nav nav-pills mb-4 justify-content-center" id="mainNav">
             <li class="nav-item">
                 <a class="nav-link active" href="#" data-section="home">
                     <i class="fas fa-home me-1"></i> Home
@@ -253,8 +596,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" data-section="education">
-                    <i class="fas fa-graduation-cap me-1"></i> Education
+                <a class="nav-link" href="#" data-section="team">
+                    <i class="fas fa-users me-1"></i> Team
                 </a>
             </li>
             <li class="nav-item">
@@ -268,6 +611,11 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="#" data-section="education">
+                    <i class="fas fa-graduation-cap me-1"></i> Education
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#" data-section="contact">
                     <i class="fas fa-envelope me-1"></i> Contact
                 </a>
@@ -278,11 +626,11 @@
         <div id="pageContent">
             <!-- Home Page -->
             <div id="home" class="page-section active">
-                <h2 class="text-center mb-4">Our Services</h2>
+                <h2 class="section-title text-center">Our Services</h2>
                 
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="card">
+                        <div class="card card-color-1">
                             <div class="card-body">
                                 <h3 class="card-title"><i class="fas fa-robot me-2"></i> AI/ML Projects</h3>
                                 <ul class="list-unstyled">
@@ -290,19 +638,23 @@
                                     <li><i class="fas fa-check-circle text-success me-2"></i> Classification Models</li>
                                     <li><i class="fas fa-check-circle text-success me-2"></i> Recommendation Systems</li>
                                     <li><i class="fas fa-check-circle text-success me-2"></i> Deep Learning Projects</li>
+                                    <li><i class="fas fa-check-circle text-success me-2"></i> Unsupervised Learning</li>
+                                    <li><i class="fas fa-check-circle text-success me-2"></i> Generative AI Projects</li>
+                                    <li><i class="fas fa-check-circle text-success me-2"></i> Natural Language Processing</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     
                     <div class="col-md-6">
-                        <div class="card">
+                        <div class="card card-color-2">
                             <div class="card-body">
                                 <h3 class="card-title"><i class="fas fa-code me-2"></i> Software Development</h3>
                                 <ul class="list-unstyled">
-                                    <li><i class="fas fa-check-circle text-success me-2"></i> Mobile Applications</li>
-                                    <li><i class="fas fa-check-circle text-success me-2"></i> Web Applications</li>
-                                    <li><i class="fas fa-check-circle text-success me-2"></i> MERN/MEAN Stack</li>
+                                    <li><i class="fas fa-check-circle text-success me-2"></i> Mobile Applications (Android/iOS)</li>
+                                    <li><i class="fas fa-check-circle text-success me-2"></i> Web Applications (Full Stack)</li>
+                                    <li><i class="fas fa-check-circle text-success me-2"></i> MERN/MEAN Stack Development</li>
+                                    <li><i class="fas fa-check-circle text-success me-2"></i> Cross-platform Apps</li>
                                     <li><i class="fas fa-check-circle text-success me-2"></i> Cloud Integration</li>
                                 </ul>
                             </div>
@@ -310,8 +662,8 @@
                     </div>
                 </div>
                 
-                <h2 class="text-center my-4">Why Choose Us?</h2>
-                <div class="card">
+                <h2 class="section-title text-center mt-5">Why Choose Us?</h2>
+                <div class="card card-color-3">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
@@ -325,7 +677,7 @@
                                 <ul class="list-unstyled">
                                     <li><i class="fas fa-star text-warning me-2"></i> Affordable Pricing</li>
                                     <li><i class="fas fa-star text-warning me-2"></i> 72+ Completed Projects</li>
-                                    <li><i class="fas fa-star text-warning me-2"></i> Direct Manager Access</li>
+                                    <li><i class="fas fa-star text-warning me-2"></i> Direct Project Manager Access</li>
                                 </ul>
                             </div>
                         </div>
@@ -333,97 +685,277 @@
                 </div>
                 
                 <div class="text-center mt-4">
-                    <a href="#contact" class="btn btn-primary me-2" data-section="contact">
-                        <i class="fas fa-paper-plane me-1"></i> Get Started
+                    <a href="#contact" class="btn btn-primary btn-lg me-3" data-section="contact">
+                        <i class="fas fa-paper-plane me-2"></i> Get Started
                     </a>
-                    <a href="#projects" class="btn btn-primary" data-section="projects">
-                        <i class="fas fa-eye me-1"></i> View Projects
+                    <a href="#projects" class="btn btn-secondary btn-lg" data-section="projects">
+                        <i class="fas fa-eye me-2"></i> View Projects
                     </a>
+                </div>
+
+                <!-- Testimonials Section -->
+                <h2 class="section-title text-center mt-5">What Our Clients Say</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card testimonial-card">
+                            <div class="card-body">
+                                <p class="card-text"><i class="fas fa-quote-left text-muted me-2"></i> The team delivered my final year project on time with excellent documentation. Highly recommended! <i class="fas fa-quote-right text-muted ms-2"></i></p>
+                                <div class="testimonial-author">- Rahul Sharma</div>
+                                <small class="text-muted">Computer Science Student</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card testimonial-card">
+                            <div class="card-body">
+                                <p class="card-text"><i class="fas fa-quote-left text-muted me-2"></i> Their AI project guidance helped me secure an internship at a top tech company. <i class="fas fa-quote-right text-muted ms-2"></i></p>
+                                <div class="testimonial-author">- Priya Patel</div>
+                                <small class="text-muted">AI Enthusiast</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card testimonial-card">
+                            <div class="card-body">
+                                <p class="card-text"><i class="fas fa-quote-left text-muted me-2"></i> The 3-month internship program gave me hands-on experience with real-world projects. <i class="fas fa-quote-right text-muted ms-2"></i></p>
+                                <div class="testimonial-author">- Ankit Verma</div>
+                                <small class="text-muted">Web Development Intern</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <!-- Education Page -->
-            <div id="education" class="page-section">
-                <h2 class="text-center mb-4">Education & Career Guidance</h2>
+            <!-- Projects Page -->
+            <div id="projects" class="page-section">
+                <h2 class="section-title text-center">Our Projects</h2>
                 
-                <div class="education-feature">
-                    <i class="fas fa-rocket"></i>
-                    <strong>The Right Way to Choose Your Education Path & Job</strong>
-                    <p>Discover how to select the best learning options for your goals</p>
-                </div>
-                
-                <div class="education-feature">
-                    <i class="fas fa-lightbulb"></i>
-                    <strong>Practical Career Advice from Industry Professionals</strong>
-                    <p>Get real-world insights from experts across various fields</p>
-                </div>
-                
-                <div class="education-feature">
-                    <i class="fas fa-trophy"></i>
-                    <strong>Education-to-Career Roadmaps</strong>
-                    <p>Learn which educational choices lead to your dream jobs</p>
-                </div>
-                
-                <div class="education-feature">
-                    <i class="fas fa-book"></i>
-                    <strong>Education Guidance</strong>
-                    <p>Confused about what to study after 10th/12th/college? We break down all your options with pros and cons.</p>
-                </div>
-                
-                <div class="education-feature">
-                    <i class="fas fa-briefcase"></i>
-                    <strong>Job Explorer</strong>
-                    <p>Discover 200+ career paths you might not have considered, with real salary ranges and growth potential.</p>
-                </div>
-                
-                <div class="text-center mt-4">
-                    <a href="https://orbtlearn-jcrdshm6johscwfx3bavgd.streamlit.app/" target="_blank" class="btn btn-primary">
-                        <i class="fas fa-external-link-alt me-1"></i> Explore Now
+                <div class="text-center mb-4">
+                    <a href="https://github.com/bimal-bp" class="github-badge" target="_blank">
+                        <i class="fab fa-github"></i> View My GitHub (72+ Projects)
                     </a>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card card-color-4 project-card">
+                            <div class="card-body">
+                                <h3 class="card-title"><i class="fas fa-graduation-cap me-2"></i> Right Education for Perfect Job</h3>
+                                <h5 class="card-subtitle mb-3 text-muted">ORBT-LeARN</h5>
+                                <p class="card-text">This app will help you choosing your right education path for your successful job career</p>
+                                <p class="text-muted"><small>Created by - Bimal Patra</small></p>
+                                <a href="https://orbtlearn-jcrdshm6johscwfx3bavgd.streamlit.app/" target="_blank" class="btn btn-primary">
+                                    <i class="fas fa-external-link-alt me-1"></i> View Project
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card card-color-5 project-card">
+                            <div class="card-body">
+                                <h3 class="card-title"><i class="fas fa-university me-2"></i> Bank Customer Analysis</h3>
+                                <p class="card-text">Predictive analytics for banking sector</p>
+                                <a href="https://bankattritionprojects-tymyqz4hyygziox37gfttt.streamlit.app/" target="_blank" class="btn btn-primary">
+                                    <i class="fas fa-external-link-alt me-1"></i> View Project
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card card-color-6 project-card">
+                            <div class="card-body">
+                                <h3 class="card-title"><i class="fas fa-shield-alt me-2"></i> Crime Spot Prediction</h3>
+                                <p class="card-text">AI system for predicting crime hotspots</p>
+                                <a href="https://crmiespotpredict-zi269clpbwhknp8d3cqqex.streamlit.app/" target="_blank" class="btn btn-primary">
+                                    <i class="fas fa-external-link-alt me-1"></i> View Project
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card card-color-7 project-card">
+                            <div class="card-body">
+                                <h3 class="card-title"><i class="fas fa-balance-scale me-2"></i> Legal App</h3>
+                                <p class="card-text">Legal assistance and documentation platform</p>
+                                <a href="https://legal-app-6ovymevnmlyrcasclwtt8u.streamlit.app/" target="_blank" class="btn btn-primary">
+                                    <i class="fas fa-external-link-alt me-1"></i> View Project
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card card-color-8 project-card">
+                            <div class="card-body">
+                                <h3 class="card-title"><i class="fas fa-user-graduate me-2"></i> Student Performance Tracker</h3>
+                                <p class="card-text">Educational analytics dashboard</p>
+                                <a href="https://studentperformance-fvqesnqvjzxvjcpx78zheo.streamlit.app/" target="_blank" class="btn btn-primary">
+                                    <i class="fas fa-external-link-alt me-1"></i> View Project
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card card-color-9 project-card">
+                            <div class="card-body">
+                                <h3 class="card-title"><i class="fas fa-chart-line me-2"></i> PRODIGY_WebDevelopment</h3>
+                                <p class="card-text">Analytics dashboard</p>
+                                <a href="https://github.com/GVMNREDDY/PRODIGY_WebDevelopment" target="_blank" class="btn btn-primary">
+                                    <i class="fas fa-external-link-alt me-1"></i> View Project
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Page -->
+            <div id="team" class="page-section">
+                <h2 class="section-title text-center">Our Team</h2>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="team-member text-center">
+                            <img src="https://via.placeholder.com/150" alt="Bimal Patra" class="team-member-img">
+                            <div class="card card-color-11">
+                                <div class="card-body">
+                                    <h3 class="card-title">Bimal Patra</h3>
+                                    <h5 class="card-subtitle mb-2 text-muted">Officer Artificial Intelligence Process</h5>
+                                    <p class="card-text">Expert in machine learning and data science</p>
+                                    <a href="#" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-envelope me-1"></i> Contact
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="team-member text-center">
+                            <img src="https://via.placeholder.com/150" alt="Rakesh Behera" class="team-member-img">
+                            <div class="card card-color-12">
+                                <div class="card-body">
+                                    <h3 class="card-title">Rakesh Behera</h3>
+                                    <h5 class="card-subtitle mb-2 text-muted">Mobile Developer</h5>
+                                    <p class="card-text">Skilled in Android, iOS and cross-platform development</p>
+                                    <a href="#" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-envelope me-1"></i> Contact
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="team-member text-center">
+                            <img src="https://via.placeholder.com/150" alt="Sravan Sahoo" class="team-member-img">
+                            <div class="card card-color-13">
+                                <div class="card-body">
+                                    <h3 class="card-title">Sravan Sahoo</h3>
+                                    <h5 class="card-subtitle mb-2 text-muted">Web Developer</h5>
+                                    <p class="card-text">Full stack developer with modern frameworks</p>
+                                    <a href="#" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-envelope me-1"></i> Contact
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="team-member text-center">
+                            <img src="https://via.placeholder.com/150" alt="Heema Samal" class="team-member-img">
+                            <div class="card card-color-14">
+                                <div class="card-body">
+                                    <h3 class="card-title">Heema Samal</h3>
+                                    <h5 class="card-subtitle mb-2 text-muted">Project Manager</h5>
+                                    <p class="card-text">Ensuring smooth project execution</p>
+                                    <a href="#" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-envelope me-1"></i> Contact
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="team-member text-center">
+                            <img src="https://via.placeholder.com/150" alt="Ramhari Samal" class="team-member-img">
+                            <div class="card card-color-15">
+                                <div class="card-body">
+                                    <h3 class="card-title">Ramhari Samal</h3>
+                                    <h5 class="card-subtitle mb-2 text-muted">Data Scientist</h5>
+                                    <p class="card-text">Specialized in predictive analytics</p>
+                                    <a href="#" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-envelope me-1"></i> Contact
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="team-member text-center">
+                            <img src="https://via.placeholder.com/150" alt="Mantu Gouda" class="team-member-img">
+                            <div class="card card-color-1">
+                                <div class="card-body">
+                                    <h3 class="card-title">Mantu Gouda</h3>
+                                    <h5 class="card-subtitle mb-2 text-muted">ML Developer</h5>
+                                    <p class="card-text">Creating intuitive user interfaces</p>
+                                    <a href="#" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-envelope me-1"></i> Contact
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
             <!-- Internship Page -->
             <div id="internship" class="page-section">
-                <h2 class="text-center mb-4">🎯 Internship Opportunities</h2>
-                
+                <h2 class="section-title text-center">🎯 Internship Opportunities</h2>
                 <div class="alert alert-warning">
                     <i class="fas fa-exclamation-circle me-2"></i> <strong>Note:</strong> This is a paid internship where you pay to learn skills and work on projects.
                 </div>
                 
-                <div class="card mb-3">
+                <div class="card mb-4">
                     <div class="card-body">
                         <h3 class="card-title"><i class="fas fa-rocket me-2"></i> Internship Programs</h3>
                         <h4 class="card-subtitle mb-3"><i class="fas fa-brain me-2"></i> Data Science with Machine Learning Internship</h4>
                         <h4 class="card-subtitle mb-3"><i class="fas fa-laptop-code me-2"></i> Full Stack Web Development Internship</h4>
                         
                         <div class="row mt-3">
-                            <div class="col-md-6 mb-3">
-                                <div class="internship-card">
+                            <div class="col-md-6">
+                                <div class="internship-card card-color-4">
                                     <h4><i class="fas fa-bolt me-2"></i> 1 Month Intensive</h4>
                                     <p><i class="fas fa-check-circle text-success me-2"></i> Daily mentorship</p>
                                     <p><i class="fas fa-check-circle text-success me-2"></i> Certificate of Completion</p>
                                     <p><i class="fas fa-check-circle text-success me-2"></i> Project Report</p>
                                     <p><i class="fas fa-check-circle text-success me-2"></i> Online/Offline</p>
-                                    <a href="#contact" class="btn btn-primary btn-sm mt-2" data-section="contact">Apply Now</a>
+                                    <a href="#contact" class="btn btn-sm btn-primary mt-2" data-section="contact">Apply Now</a>
                                 </div>
                             </div>
                             
-                            <div class="col-md-6 mb-3">
-                                <div class="internship-card">
+                            <div class="col-md-6">
+                                <div class="internship-card card-color-5">
                                     <h4><i class="fas fa-calendar-alt me-2"></i> 3 Month Comprehensive</h4>
                                     <p><i class="fas fa-check-circle text-success me-2"></i> Multiple projects</p>
                                     <p><i class="fas fa-check-circle text-success me-2"></i> Performance Grading</p>
                                     <p><i class="fas fa-check-circle text-success me-2"></i> LOR for top performers</p>
                                     <p><i class="fas fa-check-circle text-success me-2"></i> Detailed Reports</p>
-                                    <a href="#contact" class="btn btn-primary btn-sm mt-2" data-section="contact">Apply Now</a>
+                                    <a href="#contact" class="btn btn-sm btn-primary mt-2" data-section="contact">Apply Now</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="card mb-3">
+                <div class="card mb-4">
                     <div class="card-body">
                         <h3 class="card-title"><i class="fas fa-gift me-2"></i> What We Provide</h3>
                         <ul class="list-unstyled">
@@ -439,11 +971,13 @@
                 <div class="card">
                     <div class="card-body">
                         <h3 class="card-title"><i class="fas fa-headset me-2"></i> Contact Our Program Manager</h3>
-                        <div class="internship-card">
-                            <h4>Reema Samal</h4>
-                            <p><i class="fas fa-envelope me-2"></i> <a href="mailto:reemasamal@orbttechgrow.com">reemasamal@orbttechgrow.com</a></p>
-                            <p><i class="fas fa-phone me-2"></i> +91 9390920256</p>
-                            <p><i class="fas fa-clock me-2"></i> Available: Mon-Fri, 10AM-6PM</p>
+                        <div class="manager-card card-color-6">
+                            <div class="card-body">
+                                <h4 class="card-title">Reema Samal</h4>
+                                <p><i class="fas fa-envelope me-2"></i> <a href="mailto:reemasamal@orbttechgrow.com">reemasamal@orbttechgrow.com</a></p>
+                                <p><i class="fas fa-phone me-2"></i> +91 9876543210</p>
+                                <p><i class="fas fa-clock me-2"></i> Available: Mon-Fri, 10AM-6PM</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -451,120 +985,126 @@
             
             <!-- Job Page -->
             <div id="job" class="page-section">
-                <h2 class="text-center mb-4">Job Opportunities</h2>
+                <h2 class="section-title text-center">Job Opportunities</h2>
                 
-                <div class="alert alert-info">
-                    <i class="fas fa-info-circle me-2"></i> <strong>High-Demand IT Jobs:</strong> If you want freelancing jobs you can join our team. Contact us.
-                </div>
-                
-                <div class="card mb-3">
+                <div class="card mb-4">
                     <div class="card-body">
                         <h3 class="card-title"><i class="fas fa-briefcase me-2"></i> Current Openings</h3>
+                        <p class="card-text">We're always looking for talented individuals to join our team. Below are our current job openings:</p>
                         
-                        <div class="job-card mb-3">
-                            <h4>Machine Learning Engineer</h4>
-                            <p><i class="fas fa-map-marker-alt me-2"></i> Remote/On-site</p>
-                            <p><i class="fas fa-clock me-2"></i> Full-time</p>
-                            <p><i class="fas fa-rupee-sign me-2"></i> Competitive salary</p>
-                            <a href="#contact" class="btn btn-primary btn-sm" data-section="contact">Apply Now</a>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card job-card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Machine Learning Engineer</h4>
+                                        <p class="card-text"><i class="fas fa-map-marker-alt me-2"></i> Remote/On-site</p>
+                                        <p class="card-text"><i class="fas fa-clock me-2"></i> Full-time</p>
+                                        <p class="card-text"><i class="fas fa-rupee-sign me-2"></i> Competitive salary</p>
+                                        <a href="#contact" class="btn btn-primary mt-2" data-section="contact">Apply Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="card job-card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Full Stack Developer</h4>
+                                        <p class="card-text"><i class="fas fa-map-marker-alt me-2"></i> Remote/On-site</p>
+                                        <p class="card-text"><i class="fas fa-clock me-2"></i> Full-time</p>
+                                        <p class="card-text"><i class="fas fa-rupee-sign me-2"></i> Competitive salary</p>
+                                        <a href="#contact" class="btn btn-primary mt-2" data-section="contact">Apply Now</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <div class="job-card">
-                            <h4>Full Stack Developer</h4>
-                            <p><i class="fas fa-map-marker-alt me-2"></i> Remote/On-site</p>
-                            <p><i class="fas fa-clock me-2"></i> Full-time</p>
-                            <p><i class="fas fa-rupee-sign me-2"></i> Competitive salary</p>
-                            <a href="#contact" class="btn btn-primary btn-sm" data-section="contact">Apply Now</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h3 class="card-title"><i class="fas fa-file-alt me-2"></i> My Resume</h3>
-                        <p>View my professional resume:</p>
-                        <a href="https://drive.google.com/file/d/1C9JuG5zdpdqam93NNUZVOEucvt6WyEVn/view?pli=1" target="_blank" class="btn btn-primary">
-                            <i class="fas fa-external-link-alt me-1"></i> View My Resume
-                        </a>
                     </div>
                 </div>
                 
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title"><i class="fas fa-user-tie me-2"></i> Career Consultation</h3>
-                        <p>Book paid 1-on-1 sessions with industry experts:</p>
-                        
-                        <p><strong>1-hour Session (₹650) & For Group (₹350) includes:</strong></p>
-                        <ul>
-                            <li>Comprehensive resume building</li>
-                            <li>LinkedIn profile optimization</li>
-                            <li>Personalized cover letter writing</li>
-                            <li>Job application strategy</li>
-                            <li>Interview preparation techniques</li>
-                            <li>Salary negotiation guidance</li>
-                        </ul>
-                        
-                        <a href="#contact" class="btn btn-primary mt-2" data-section="contact">Book Consultation</a>
+                        <h3 class="card-title"><i class="fas fa-user-tie me-2"></i> Why Work With Us?</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check-circle text-success me-2"></i> Flexible work environment</li>
+                                    <li><i class="fas fa-check-circle text-success me-2"></i> Opportunity to work on cutting-edge projects</li>
+                                    <li><i class="fas fa-check-circle text-success me-2"></i> Continuous learning and growth</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check-circle text-success me-2"></i> Competitive compensation</li>
+                                    <li><i class="fas fa-check-circle text-success me-2"></i> Collaborative team culture</li>
+                                    <li><i class="fas fa-check-circle text-success me-2"></i> Impactful work</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Projects Page -->
-            <div id="projects" class="page-section">
-                <h2 class="text-center mb-4">Our Projects</h2>
+            <!-- Education Page -->
+            <div id="education" class="page-section">
+                <h2 class="section-title text-center">Education & Training</h2>
                 
-                <div class="text-center mb-4">
-                    <a href="https://github.com/bimal-bp" class="btn btn-primary" target="_blank">
-                        <i class="fab fa-github me-1"></i> View My GitHub (72+ Projects)
-                    </a>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title"><i class="fas fa-chalkboard-teacher me-2"></i> Our Training Programs</h3>
+                        <p class="card-text">We offer comprehensive training programs to help you gain the skills needed for today's job market.</p>
+                        
+                        <div class="education-timeline mt-4">
+                            <div class="timeline-item">
+                                <h4>Data Science Bootcamp</h4>
+                                <p><strong>Duration:</strong> 12 weeks</p>
+                                <p><strong>Skills:</strong> Python, Machine Learning, Data Visualization, SQL</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h4>Web Development Masterclass</h4>
+                                <p><strong>Duration:</strong> 10 weeks</p>
+                                <p><strong>Skills:</strong> HTML/CSS, JavaScript, React, Node.js, MongoDB</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h4>AI & Machine Learning</h4>
+                                <p><strong>Duration:</strong> 16 weeks</p>
+                                <p><strong>Skills:</strong> TensorFlow, PyTorch, NLP, Computer Vision</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="card-title"><i class="fas fa-graduation-cap me-2"></i> Right Education for Perfect Job</h3>
-                                <h5 class="card-subtitle mb-3 text-muted">ORBT_LEARN</h5>
-                                <p class="card-text">This app will help you choose your right education path for your successful job career</p>
-                                <a href="https://orbtlearn-jcrdshm6johscwfx3bavgd.streamlit.app/" target="_blank" class="btn btn-primary btn-sm">
-                                    <i class="fas fa-external-link-alt me-1"></i> View Project
-                                </a>
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title"><i class="fas fa-certificate me-2"></i> Certification Programs</h3>
+                        <p>Our certification programs are designed to give you a competitive edge in the job market.</p>
+                        
+                        <div class="row mt-3">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Certified Data Scientist</h5>
+                                        <p class="card-text">Master data science concepts and applications</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="card-title"><i class="fas fa-university me-2"></i> Bank Customer Analysis</h3>
-                                <p class="card-text">Predictive analytics for banking sector</p>
-                                <a href="https://bankattritionprojects-tymyqz4hyygziox37gfttt.streamlit.app/" target="_blank" class="btn btn-primary btn-sm">
-                                    <i class="fas fa-external-link-alt me-1"></i> View Project
-                                </a>
+                            
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Certified Full Stack Developer</h5>
+                                        <p class="card-text">Become proficient in end-to-end web development</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="card-title"><i class="fas fa-shield-alt me-2"></i> Crime Spot Prediction</h3>
-                                <p class="card-text">AI system for predicting crime hotspots</p>
-                                <a href="https://crmiespotpredict-zi269clpbwhknp8d3cqqex.streamlit.app/" target="_blank" class="btn btn-primary btn-sm">
-                                    <i class="fas fa-external-link-alt me-1"></i> View Project
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="card-title"><i class="fas fa-balance-scale me-2"></i> Legal App</h3>
-                                <p class="card-text">Legal assistance and documentation platform</p>
-                                <a href="https://legal-app-6ovymevnmlyrcasclwtt8u.streamlit.app/" target="_blank" class="btn btn-primary btn-sm">
-                                    <i class="fas fa-external-link-alt me-1"></i> View Project
-                                </a>
+                            
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Certified AI Engineer</h5>
+                                        <p class="card-text">Specialize in artificial intelligence solutions</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -573,64 +1113,68 @@
             
             <!-- Contact Page -->
             <div id="contact" class="page-section">
-                <h2 class="text-center mb-4">Contact Us</h2>
+                <h2 class="section-title text-center">Contact Us</h2>
                 
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h3 class="card-title mb-3"><i class="fas fa-paper-plane me-2"></i> Send Us a Message</h3>
-                        <form id="contactForm">
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Your Name</label>
-                                <input type="text" class="form-control" id="name" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email Address</label>
-                                <input type="email" class="form-control" id="email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="subject" class="form-label">Subject</label>
-                                <select class="form-select" id="subject">
-                                    <option value="project">Project Inquiry</option>
-                                    <option value="internship">Internship</option>
-                                    <option value="job">Job Opportunity</option>
-                                    <option value="education">Education/Training</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Message</label>
-                                <textarea class="form-control" id="message" rows="4" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                        </form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="contact-form">
+                            <h3 class="mb-4"><i class="fas fa-paper-plane me-2"></i> Send Us a Message</h3>
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <select class="form-select" id="subject">
+                                        <option value="project">Project Inquiry</option>
+                                        <option value="internship">Internship</option>
+                                        <option value="job">Job Opportunity</option>
+                                        <option value="education">Education/Training</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title mb-3"><i class="fas fa-map-marker-alt me-2"></i> Our Location</h3>
-                        <div class="mb-3">
-                            <h5><i class="fas fa-building me-2"></i> OrbtTechgrow Headquarters</h5>
-                            <p>123 Tech Park, Innovation Road<br>Bhubaneswar, Odisha 751024<br>India</p>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <h5><i class="fas fa-envelope me-2"></i> Email Us</h5>
-                            <p><a href="mailto:info@orbttechgrow.com">info@orbttechgrow.com</a></p>
-                            <p><a href="mailto:support@orbttechgrow.com">support@orbttechgrow.com</a></p>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <h5><i class="fas fa-phone me-2"></i> Call Us</h5>
-                            <p>+91 9348245158 (Office)</p>
-                            <p>+91 9876543210 (Support)</p>
-                        </div>
-                        
-                        <div>
-                            <h5><i class="fas fa-clock me-2"></i> Working Hours</h5>
-                            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                            <p>Saturday: 10:00 AM - 3:00 PM</p>
-                            <p>Sunday: Closed</p>
+                    
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title mb-4"><i class="fas fa-map-marker-alt me-2"></i> Our Location</h3>
+                                <div class="mb-4">
+                                    <h5><i class="fas fa-building me-2"></i> OrbtTechgrow Headquarters</h5>
+                                    <p>123 Tech Park, Innovation Road<br>Bhubaneswar, Odisha 751024<br>India</p>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h5><i class="fas fa-envelope me-2"></i> Email Us</h5>
+                                    <p><a href="mailto:info@orbttechgrow.com">info@orbttechgrow.com</a></p>
+                                    <p><a href="mailto:support@orbttechgrow.com">support@orbttechgrow.com</a></p>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h5><i class="fas fa-phone me-2"></i> Call Us</h5>
+                                    <p>+91 9876543210 (Office)</p>
+                                    <p>+91 8765432109 (Support)</p>
+                                </div>
+                                
+                                <div>
+                                    <h5><i class="fas fa-clock me-2"></i> Working Hours</h5>
+                                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                    <p>Saturday: 10:00 AM - 3:00 PM</p>
+                                    <p>Sunday: Closed</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -642,35 +1186,47 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h4>About Orbt_Learn</h4>
+                <div class="col-md-4">
+                    <h4>About Orbt Learn</h4>
                     <p>We provide the right education and training to help you succeed in your career. Our team of experts is dedicated to your success.</p>
                     <div class="social-icons mt-3">
-                        <a href="https://www.linkedin.com/in/orbt-learn-9812a9363/" class="me-2"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.instagram.com/orbt_learn/" class="me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/orbt-learn-9812a9363/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/orbt_learn/"><i class="fab fa-instagram"></i></a>
                         <a href="https://github.com/bimal-bp"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
+                <div class="col-md-2">
                     <h4>Quick Links</h4>
                     <ul class="list-unstyled">
                         <li><a href="#" data-section="home">Home</a></li>
                         <li><a href="#" data-section="projects">Projects</a></li>
-                        <li><a href="#" data-section="education">Education</a></li>
+                        <li><a href="#" data-section="team">Team</a></li>
                         <li><a href="#" data-section="internship">Internship</a></li>
                         <li><a href="#" data-section="job">Jobs</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h4>Contact Info</h4>
-                    <p><i class="fas fa-phone me-2"></i> +91 9348245158</p>
-                    <p><i class="fas fa-envelope me-2"></i> info@orbttechgrow.com</p>
-                    <p><i class="fas fa-map-marker-alt me-2"></i> Bhubaneswar, Odisha, India</p>
+                <div class="col-md-2">
+                    <h4>Services</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#">AI/ML Projects</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">Training</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to our newsletter for the latest updates and offers.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Your Email">
+                        <button class="btn btn-light" type="button">Subscribe</button>
+                    </div>
                 </div>
             </div>
-            <hr class="mt-2 mb-3" style="border-color: rgba(255,255,255,0.1);">
+            <hr class="mt-4" style="background-color: rgba(255,255,255,0.1);">
             <div class="row">
-                <div class="col-md-6 mb-2">
+                <div class="col-md-6">
                     <p class="mb-0">&copy; 2023 OrbtTechgrow. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
@@ -717,6 +1273,31 @@
                 });
             });
             
+            // Handle floating action button
+            const contactFab = document.getElementById('contactFab');
+            contactFab.addEventListener('click', function() {
+                // Hide all sections
+                const sections = document.querySelectorAll('.page-section');
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show contact section
+                document.getElementById('contact').classList.add('active');
+                
+                // Update active nav link
+                navLinks.forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                document.querySelector('[data-section="contact"]').classList.add('active');
+                
+                // Smooth scroll to top
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
             // Handle contact form submission
             const contactForm = document.getElementById('contactForm');
             if (contactForm) {
@@ -726,6 +1307,24 @@
                     this.reset();
                 });
             }
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if (this.getAttribute('data-section')) return;
+                    
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
         });
     </script>
 </body>

@@ -3,87 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orbt_Learn</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>ORBT_Learn - The Right Education For Job</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Base styles with modern gradient colors */
         :root {
             --primary-color: #00B4D8;
             --primary-dark: #0077B6;
             --secondary-color: #7209B7;
+            --secondary-dark: #480CA8;
             --accent-color: #FF9E00;
-            --light-bg: #F8F9FA;
-            --dark-text: #212529;
-            --gray-text: #6C757D;
+            --dark-text: #2B2D42;
+            --light-text: #8D99AE;
             --gradient-primary: linear-gradient(135deg, #00B4D8 0%, #0077B6 100%);
-            --gradient-secondary: linear-gradient(135deg, #7209B7 0%, #560BAD 100%);
-            --gradient-accent: linear-gradient(135deg, #FF9E00 0%, #FF6D00 100%);
+            --gradient-secondary: linear-gradient(135deg, #7209B7 0%, #480CA8 100%);
+            --gradient-accent: linear-gradient(135deg, #FF9E00 0%, #FF7B00 100%);
         }
         
         body {
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: white;
+            font-family: 'Poppins', sans-serif;
             color: var(--dark-text);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            overflow-x: hidden;
+            background-color: #f8f9fa;
         }
         
-        /* Animated header with gradient */
+        /* Header styles */
         .header {
-            font-size: 2.5rem;
+            font-size: 3rem;
+            font-weight: 700;
             text-align: center;
-            margin-bottom: 1.5rem;
-            color: white;
+            margin: 30px 0 10px;
             background: var(--gradient-primary);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 180, 216, 0.2);
-            position: relative;
-            overflow: hidden;
-            animation: gradientShift 8s ease infinite;
-            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-weight: 700;
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .header::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(
-                to right,
-                rgba(255, 255, 255, 0) 20%,
-                rgba(255, 255, 255, 0.5) 50%,
-                rgba(255, 255, 255, 0) 80%
-            );
-            transform: translateX(-100%);
-            animation: shimmer 2s infinite;
-        }
-        
-        @keyframes shimmer {
-            100% { transform: translateX(100%); }
         }
         
         .subheader {
-            text-align: center; 
-            margin-bottom: 25px;
+            text-align: center;
             font-size: 1.1rem;
-            color: var(--gray-text);
-            font-weight: 300;
+            color: var(--light-text);
+            margin-bottom: 30px;
         }
         
         /* Modern card design with hover effects */
@@ -147,12 +112,14 @@
             font-weight: 500;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+            color: white;
         }
         
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(0, 180, 216, 0.4);
             background: var(--gradient-primary);
+            color: white;
         }
         
         .btn-secondary {
@@ -163,12 +130,14 @@
             font-weight: 500;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(114, 9, 183, 0.3);
+            color: white;
         }
         
         .btn-secondary:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(114, 9, 183, 0.4);
             background: var(--gradient-secondary);
+            color: white;
         }
         
         /* GitHub badge with animation */
@@ -700,219 +669,219 @@
                 </div>
             </div>
             
-<!-- Projects Page -->
-<div id="projects" class="page-section">
-    <h2 class="section-title text-center">Our Projects</h2>
-    
-    <div class="text-center mb-4">
-        <a href="https://github.com/bimal-bp" class="github-badge" target="_blank">
-            <i class="fab fa-github"></i> View My GitHub (72+ Projects)
-        </a>
-    </div>
-    
-    <div class="row">
-        <div class="col-md-6">
-            <!-- Existing Projects Column -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="card card-color-4 project-card">
-                        <div class="card-body">
-                            <h3 class="card-title"><i class="fas fa-graduation-cap me-2"></i> Right Education for Perfect Job</h3>
-                            <h5 class="card-subtitle mb-3 text-muted">ORBT-LeARN</h5>
-                            <p class="card-text">This app will help you choosing your right education path for your successful job career</p>
-                            <p class="text-muted"><small>Created by - Bimal Patra</small></p>
-                            <a href="https://orbtlearn-jcrdshm6johscwfx3bavgd.streamlit.app/" target="_blank" class="btn btn-primary">
-                                <i class="fas fa-external-link-alt me-1"></i> View Project
-                            </a>
-                        </div>
-                    </div>
+            <!-- Projects Page -->
+            <div id="projects" class="page-section">
+                <h2 class="section-title text-center">Our Projects</h2>
+                
+                <div class="text-center mb-4">
+                    <a href="https://github.com/bimal-bp" class="github-badge" target="_blank">
+                        <i class="fab fa-github"></i> View My GitHub (72+ Projects)
+                    </a>
                 </div>
                 
-                <div class="col-12 mt-3">
-                    <div class="card card-color-5 project-card">
-                        <div class="card-body">
-                            <h3 class="card-title"><i class="fas fa-university me-2"></i> Bank Customer Analysis</h3>
-                            <p class="card-text">Predictive analytics for banking sector</p>
-                            <a href="https://bankattritionprojects-tymyqz4hyygziox37gfttt.streamlit.app/" target="_blank" class="btn btn-primary">
-                                <i class="fas fa-external-link-alt me-1"></i> View Project
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-12 mt-3">
-                    <div class="card card-color-6 project-card">
-                        <div class="card-body">
-                            <h3 class="card-title"><i class="fas fa-shield-alt me-2"></i> Crime Spot Prediction</h3>
-                            <p class="card-text">AI system for predicting crime hotspots</p>
-                            <a href="https://crmiespotpredict-zi269clpbwhknp8d3cqqex.streamlit.app/" target="_blank" class="btn btn-primary">
-                                <i class="fas fa-external-link-alt me-1"></i> View Project
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-6">
-            <!-- New Project Ideas Column -->
-            <div class="card card-color-7">
-                <div class="card-body">
-                    <h3 class="card-title"><i class="fas fa-lightbulb me-2"></i> Choose Your Project Idea</h3>
-                    <p class="card-text">Select from our collection of 20+ project ideas across different domains:</p>
-                    
-                    <div class="accordion" id="projectAccordion">
-                        <!-- AI Projects -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aiProjects">
-                                    <i class="fas fa-robot me-2"></i> Artificial Intelligence Projects
-                                </button>
-                            </h2>
-                            <div id="aiProjects" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
-                                <div class="accordion-body">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Intelligent Chatbot for Human-Like Conversations
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Real-Time Face Recognition System
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            AI-Based Resume Screening System
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Reinforcement Learning Game Bot
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Generative AI for Music Creation
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                    </ul>
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Existing Projects Column -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card card-color-4 project-card">
+                                    <div class="card-body">
+                                        <h3 class="card-title"><i class="fas fa-graduation-cap me-2"></i> Right Education for Perfect Job</h3>
+                                        <h5 class="card-subtitle mb-3 text-muted">ORBT-LeARN</h5>
+                                        <p class="card-text">This app will help you choosing your right education path for your successful job career</p>
+                                        <p class="text-muted"><small>Created by - Bimal Patra</small></p>
+                                        <a href="https://orbtlearn-jcrdshm6johscwfx3bavgd.streamlit.app/" target="_blank" class="btn btn-primary">
+                                            <i class="fas fa-external-link-alt me-1"></i> View Project
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <!-- ML Projects -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mlProjects">
-                                    <i class="fas fa-brain me-2"></i> Machine Learning Projects
-                                </button>
-                            </h2>
-                            <div id="mlProjects" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
-                                <div class="accordion-body">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Predictive Real Estate Pricing
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Fake News Detection System
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Credit Card Fraud Detection
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Twitter Sentiment Analysis
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Customer Churn Prediction
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                    </ul>
+                            
+                            <div class="col-12 mt-3">
+                                <div class="card card-color-5 project-card">
+                                    <div class="card-body">
+                                        <h3 class="card-title"><i class="fas fa-university me-2"></i> Bank Customer Analysis</h3>
+                                        <p class="card-text">Predictive analytics for banking sector</p>
+                                        <a href="https://bankattritionprojects-tymyqz4hyygziox37gfttt.streamlit.app/" target="_blank" class="btn btn-primary">
+                                            <i class="fas fa-external-link-alt me-1"></i> View Project
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <!-- Software Dev Projects -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#softwareProjects">
-                                    <i class="fas fa-laptop-code me-2"></i> Software Development Projects
-                                </button>
-                            </h2>
-                            <div id="softwareProjects" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
-                                <div class="accordion-body">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Personal Finance Management App
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Online Collaborative Code Editor
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Inventory Management System
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Blogging Platform
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Task Management App (Trello Clone)
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Mobile App Projects -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mobileProjects">
-                                    <i class="fas fa-mobile-alt me-2"></i> Mobile App Projects
-                                </button>
-                            </h2>
-                            <div id="mobileProjects" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
-                                <div class="accordion-body">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Health Tracker App
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Food Delivery App
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Language Learning App
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            E-commerce Mobile App
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Weather Forecast App
-                                            <button class="btn btn-sm btn-outline-primary">Choose</button>
-                                        </li>
-                                    </ul>
+                            
+                            <div class="col-12 mt-3">
+                                <div class="card card-color-6 project-card">
+                                    <div class="card-body">
+                                        <h3 class="card-title"><i class="fas fa-shield-alt me-2"></i> Crime Spot Prediction</h3>
+                                        <p class="card-text">AI system for predicting crime hotspots</p>
+                                        <a href="https://crmiespotpredict-zi269clpbwhknp8d3cqqex.streamlit.app/" target="_blank" class="btn btn-primary">
+                                            <i class="fas fa-external-link-alt me-1"></i> View Project
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="mt-3 text-center">
-                        <button class="btn btn-secondary" id="contactForCustomProject">
-                            <i class="fas fa-envelope me-1"></i> Contact for Custom Project
-                        </button>
+                    <div class="col-md-6">
+                        <!-- New Project Ideas Column -->
+                        <div class="card card-color-7">
+                            <div class="card-body">
+                                <h3 class="card-title"><i class="fas fa-lightbulb me-2"></i> Choose Your Project Idea</h3>
+                                <p class="card-text">Select from our collection of 20+ project ideas across different domains:</p>
+                                
+                                <div class="accordion" id="projectAccordion">
+                                    <!-- AI Projects -->
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aiProjects">
+                                                <i class="fas fa-robot me-2"></i> Artificial Intelligence Projects
+                                            </button>
+                                        </h2>
+                                        <div id="aiProjects" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+                                            <div class="accordion-body">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Intelligent Chatbot for Human-Like Conversations
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Real-Time Face Recognition System
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        AI-Based Resume Screening System
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Reinforcement Learning Game Bot
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Generative AI for Music Creation
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- ML Projects -->
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mlProjects">
+                                                <i class="fas fa-brain me-2"></i> Machine Learning Projects
+                                            </button>
+                                        </h2>
+                                        <div id="mlProjects" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+                                            <div class="accordion-body">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Predictive Real Estate Pricing
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Fake News Detection System
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Credit Card Fraud Detection
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Twitter Sentiment Analysis
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Customer Churn Prediction
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Software Dev Projects -->
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#softwareProjects">
+                                                <i class="fas fa-laptop-code me-2"></i> Software Development Projects
+                                            </button>
+                                        </h2>
+                                        <div id="softwareProjects" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+                                            <div class="accordion-body">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Personal Finance Management App
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Online Collaborative Code Editor
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Inventory Management System
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Blogging Platform
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Task Management App (Trello Clone)
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Mobile App Projects -->
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mobileProjects">
+                                                <i class="fas fa-mobile-alt me-2"></i> Mobile App Projects
+                                            </button>
+                                        </h2>
+                                        <div id="mobileProjects" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+                                            <div class="accordion-body">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Health Tracker App
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Food Delivery App
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Language Learning App
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        E-commerce Mobile App
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        Weather Forecast App
+                                                        <button class="btn btn-sm btn-outline-primary">Choose</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-3 text-center">
+                                    <button class="btn btn-secondary" id="contactForCustomProject">
+                                        <i class="fas fa-envelope me-1"></i> Contact for Custom Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
             
             <!-- Team Page -->
             <div id="team" class="page-section">
